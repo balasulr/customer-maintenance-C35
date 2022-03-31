@@ -1,0 +1,24 @@
+<div>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th [ngClass]="tblHdStyle">Id</th> <!-- Define the tblHdStyle in customer-list.component.ts -->
+                <th [ngClass]="tblHdStyle">Name</th>
+                <th [ngClass]="tblHdStyle">State</th>
+                <th [ngClass]="tblHdStyle">Active</th>
+                <th [ngClass]="tblHdStyle">Sales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of customers">
+                <td>{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td *ngIf="c.stateCode == 'OH'">Ohio</td>
+                <td *ngIf="c.stateCode == 'MN'">Minnesota</td>
+                <td *ngIf="c.stateCode !='MN' && c.stateCode != 'OH'">{{c.stateCode}}</td>
+                <td>{{c.active}}</td>
+                <td>{{c.sales | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
